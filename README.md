@@ -133,7 +133,7 @@ et/ou de noter toutes autres informations utiles à connaître.
 
 Cucumber propose quelques mots clés supplémentaires comme `Background` , `And` , `But`, `Scenario Outline` et `Examples` que nous verrons un peu plus loin.  
 
-*Remarque:* Une présentation complète de la grammaire utilisée par Cucumber est consultable dans la rubrique [Gherkin](https://cucumber.io/docs/reference#gherkin) du manuel de référence [ici]((https://cucumber.io/docs/reference#gherkin).
+*Remarque:* Une présentation complète de la grammaire utilisée par Cucumber est consultable dans la rubrique [Gherkin](https://cucumber.io/docs/reference#gherkin) du manuel de référence [ici](https://cucumber.io/docs/reference#gherkin).
 
 
 
@@ -318,7 +318,7 @@ Implémenter les trois steps avec le code proposé précédemment.
 
 Supprimer les erreurs de compilation en vous aidant de votre IDE, pour créer automatiquement (en gardant pour l'instant l'implémentation vide par défaut proposée par l'IDE):
 
-* une classe `Order`dans lz package `dojo` de `src/main/java`
+* une classe `Order`dans le package `dojo` de `src/main/java`
 * et ses méthodes : `declareOwner`, `declareTarget` et `getCocktails` 
 
 
@@ -776,8 +776,8 @@ Les étapes décrites dans le `Background` seront exécutées en préalable à t
 Pour faire un parallèle avec un framework de tests unitaires en Java, on peut dire que la section **`Background`** (pour les tests fonctionnels) dans **Cucumber** joue en quelque sorte le même rôle que l'annotation  **`@Before`** (pour les tests unitaires) dans **JUnit**.
 
 **Pour en savoir plus, une documentation en ligne sur `Background` est disponible :**  
- - dans la rubrique **`Background`** de la partie Gherkin du manuel de reférence : [ici](https://cucumber.io/docs/reference#gherkin)  
-- dans la rubrique **`Background`** dans le wiki : [ici](https://github.com/cucumber/cucumber/wiki/Background)  
+ - dans la rubrique **`Background`** de la partie Gherkin du manuel de reférence : [ici](https://cucumber.io/docs/reference#gherkin)    
+ - dans la rubrique **`Background`** dans le wiki : [ici](https://github.com/cucumber/cucumber/wiki/Background)  
 
 
 ## Paramétrer le lanceur de test  à partir de `@CucumberOptions` <a id="CucumberOptions"></a>
@@ -1172,6 +1172,8 @@ Si vous souhaitez écrire des scénarios en français, vous pouvez paramétrer v
 
 Les mots clés utilisables en français peuvent se retrouver en consultant le fichier [gherkin-languages.json](https://github.com/cucumber/gherkin-java/blob/master/src/main/resources/gherkin/gherkin-languages.json) disponible sous Github dans l'implémentation Gherkin java de Cucumber.
 Ce fichier vous indique également que Cucumber propose les mots clés Gerkhin dans de nombreux autres langages : une internationalisation du Gherkin est donc bien proposée par Cucumber.
+
+Des exemples de scénarios en français pour tester la version française du gherkin peuvent être consultés [ici](https://github.com/cucumber/gherkin/blob/master/testdata/good/i18n_fr.feature).
 
 
 <!--###  multi-features
