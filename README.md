@@ -172,6 +172,9 @@ Le lanceur de tests fait le mapping entre les **étapes** des scénarii écrites
 A ce point du tutoriel, le fichier contenant les **steps** n'existe pas encore.   
 C'est pourquoi, le rapport de tests dans la console propose, pour chaque étape du fichier `.feature`, un squelette de **step** (annoté et paramétré) qu'il ne reste plus qu'à implémenter pour réaliser le mapping entre les scénariis Cucumber et le code métier java. 
 
+*Remarque :* *Si vous ne voyez pas le rapport de tests dans la console, c'est que vous n'avez surement pas enregistrer le fichier `cocktail.feature` au bon endroit c-a-d dans un package `dojo` du  source folder `src/test/resources`.*
+<!-- Au pire ajouter : @CucumberOptions(features = ".")-->
+
 
 
 ### 5. Implémenter le code de test des *steps* (méthodes java) (dans `src/test/java`) <a id="implementerStepsJava"></a>
@@ -514,7 +517,7 @@ Exécuter le fichier `RunCucumberTest`.
 La vue JUnit vous indique maintenant que les deux scénarios passent bien au vert !
 
 
-## Alléger la lecture d'un scénario (`And` et `But`) <a id="allerLectureScenario"></a>
+## Alléger la lecture d'un scénario (`And` et `But`) <a id="allegerLectureScenario"></a>
 
 Nous allons maintenant ajouter un nouveau scénario dans `cocktails.feature`.  
 Pour envoyer un message (de mots doux ?) à la cible en même temps que la commande est demandée, il serait possible d'écrire le scénario suivant (et ça marcherait !) :
