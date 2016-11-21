@@ -481,9 +481,9 @@ Modifier le texte de l'étape `Then` et le code de la step `@Then` et exécuter 
 
 ### 2. Ecriture d'un nouveau scénario à l'aide du plug-in Cucumber-Eclipse
 
-Le plug-in Cucumber-Eclipse propose via **`Ctrl+Espace`** une auto-complétion dans l'éditeur de scénarios (pour les `.feature`). La documentation peut être consultée [ici](https://github.com/cucumber/cucumber-eclipse/wiki/Content-Assistance-for-feature-file) et nous allons maintenant tester cette auto-complétion en ajoutant un nouveau scénario au fichier `cocktails.feature`.
+Le plug-in Cucumber-Eclipse propose via **`Ctrl+Espace`** une auto-complétion dans l'éditeur de scénarios (pour les `.feature`). La documentation peut être consultée [ici](https://github.com/cucumber/cucumber-eclipse/wiki/Content-Assistance-for-feature-file) et nous allons maintenant tester cette auto-complétion en ajoutant un nouveau scénario au fichier `cocktail.feature`.
 
-Placer-vous en fin de fichier `cocktails.feature` sur une nouvelle ligne vide.
+Placer-vous en fin de fichier `cocktail.feature` sur une nouvelle ligne vide.
 Un appel à `Ctrl+Espace` propose une liste de mots clés utilisables à cet emplacement.  
 Choisir **`Scenario`** et compléter la ligne par l'intitulé du scénario, par exemple 
 **`Scenario : Creating another new empty order`**.  
@@ -519,7 +519,7 @@ La vue JUnit vous indique maintenant que les deux scénarios passent bien au ver
 
 ## Alléger la lecture d'un scénario (`And` et `But`) <a id="allegerLectureScenario"></a>
 
-Nous allons maintenant ajouter un nouveau scénario dans `cocktails.feature`.  
+Nous allons maintenant ajouter un nouveau scénario dans `cocktail.feature`.  
 Pour envoyer un message (de mots doux ?) à la cible en même temps que la commande est demandée, il serait possible d'écrire le scénario suivant (et ça marcherait !) :
 
 ```GHERKIN
@@ -534,7 +534,7 @@ Pour envoyer un message (de mots doux ?) à la cible en même temps que la comma
 
 En fait, pour alléger la lecture du scénario, le [Gherkin](https://cucumber.io/docs/reference#gherkin) propose deux autres mots clés `And` et `But` qui permettent juste de mettre de l'emphase dans le texte. Ces deux mots clés n'auront aucun effet au niveau de l'implémentation du scénario, puisqu'ils reprennent juste le mot-clé précédent.
 
-Nous préférons donc écrire dans `cocktails.feature` le scénario suivant (avec le mot clé `And`) :
+Nous préférons donc écrire dans `cocktail.feature` le scénario suivant (avec le mot clé `And`) :
 
 ```GHERKIN
 
