@@ -994,21 +994,24 @@ Comme vous pouvez le constatez, ce code se base sur un fichier `json` pour trait
 Pour savoir **où insérer dans notre programme le code proposé**, il faut se poser la question de savoir **quand ce code doit être exécuté**.    
 Ce code doit être exécuté après l'exécution de tous les scénarii.   
 Rappelons que pour exécuter les scénarii du fichier `.feature`, il faut exécuter le lanceur de tests (`RunCucumberTest`) comme un simple fichier JUnit via la commande habituelle (`Run As -> JUnit Test`).      
-Idéalement, le code du plug-in devrait donc se trouver dans une méthode **`generateReport`** qui devrait être exécutée une fois que tous les tests (*steps*) auront été exécutés. Qu'à cela ne tienne, `Junit 4` propose l'annotation `@AfterClass` qui permet d'exécuter une telle méthode juste avant la fin de la classe, ce qui nous amène à transformer `RunCucumberTest` de la manière suivante :
+Idéalement, le code du plug-in devrait donc se trouver dans une méthode **`generateReport`** qui devrait être exécutée une fois que tous les tests (*steps*) auront été exécutés. 
+
+Au premier abord, on pourrait penser utiliser l'annotation `@AfterClass` de `Junit 4` pour xécuter une telle méthode juste avant la fin de la classe. 
+Mais même avec une telle annotation (j'ai testé pour vous), le rapport est généré alors que le fichier `cucumber.json` est encore en écriture.
+
+Pour pouvoir générer un *beau* rapport et être sûr que ce rapport accède au fichier `json` complet et entièrement écrit, nous allons écrire une classe GenerateReport avec un `main` qui contiendra pour l'instant le code proposé cdans la rubrique Usage** du site de ce plug-in disponible [ici](https://github.com/damianszczepanik/cucumber-reporting).  
+
 
 ```JAVA
 
-    public class RunCucumberTest {
-
-        @AfterClass  	
-	    public static void generateReport() {
+    public class GenerateReport {
+	
+	public static void main(String[] args) {
 		    // Faire un copier/coller ici du code proposé dans la partie Usage de https://github.com/damianszczepanik/cucumber-reporting
 	        }
     }
 
 ```
-
-**Remarque: Avant de continuer, vérfier que votre méthode `generateReport` est bien `static`**.
 
 ##### 2.3 Paramétrer le plug-in
 
@@ -1031,7 +1034,8 @@ Ce paramètrage s'effectue dans les premières lignes qui devraient désormais r
 
 ### 3 Visualiser les rapports générés par le plug-in `cucumber-reporting`
 
-Exécuter `RunCucumberTest` pour pouvoir visualiser les rapports générés par le plug-in `cucumber-reporting`.
+Exécuter `RunCucumberTest` pour pouvoir exécuter les scénarios.
+Une fois l'exécution terminée, lancer `GenerateReport` pour visualiser les rapports générés par le plug-in `cucumber-reporting`.
 
 **Ces rapports seront automatiquement générés dans le répertoire `cucumber-html-reports`**
 (Ce paramètre est fixé dans la classe `ReportBuilder.java` du plug-in `cucumber-reporting` dont le code est consultable [ici](https://github.com/damianszczepanik/cucumber-reporting/blob/master/src/main/java/net/masterthought/cucumber/ReportBuilder.java) si vous le souhaitez).
@@ -1046,41 +1050,14 @@ Aller dans le répertoire `target` du workspace de votre projet, vous pouvez con
 ##### 3.1 Accèder aux rapports générés (`cucumber-html-reports`)
 
 Aller dans `cucumber-html-reports`.    
-Comme indiqué dans la documentation du plug-in `cucumber-reporting` [ici](https://github.com/damianszczepanik/cucumber-reporting), ainsi que dans le code [là](https://github.com/damianszczepanik/cucumber-reporting/blob/master/src/main/java/net/masterthought/cucumber/ReportBuilder.java), le point d'entrée pour visualiser les rapports générés par `cucumber-reporting` est la page `overview-features.html`.
-
-Ouvrir `overview-features.html` dans un navigateur.  
-Et bing ! vous vous trouvez surement avec le message d'erreur :  
-**`net.masterthought.cucumber.ValidationException: File 'target/cucumber.json' is not proper Cucumber report!`**
-
-Pourtant le fichier `cucumber.json` existe bien, et si vous l'ouvrez vous pourrez constater qu'il contient bien les données issues de l'exécution des scénarios au format JSON.
-Alors que s'est-il passé ?  
-Peut-être que le fichier `cucumber.json` n'était peut-être pas tout à fait prêt lorsque le plug-in a voulu l'utiliser. Pour essayer de contourner ce problème (et être sûr que le fichier `cucumber.json` a bien été créé et contient toutes les données issues de l'exécution des scénarios), nous allons ajouter une temporisation au début de la méthode `generateReport` pour *laisser le temps à ce fichier d'être correctement généré* , par exemple en ajoutant le code suivant :
-
-```JAVA
-
-    @AfterClass
-	public static void generateReport() {
-
-		try {
-			Thread.currentThread().sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-       // Code déjà écrit
-	}
-
-
-```
-
+Comme indiqué dans la documentation du plug-in `cucumber-reporting` [ici](https://github.com/damianszczepanik/cucumber-reporting), ainsi que dans le code [là](https://github.com/damianszczepanik/cucumber-reporting/blob/master/src/main/java/net/masterthought/cucumber/ReportBuilder.java), le point d'entrée pour visualiser les rapports générés par `cucumber-reporting` est la page `overview-features.html`. 
+Vous remarquerez qu'il existe aussi les pages `overview-tags.html`, `overview-steps.html` et `overview-failures.html` dont nous reparlerons juste après.   
 
 
 ##### 3.2 Visualiser les différents rapports générés par `cucumber-reporting`
 
-Exécuter `RunCucumberTest`.  
-Aller dans `cucumber-html-reports`. Cette fois-ci, vous devriez y trouver la page `overview-features.html`, ainsi que les pages `overview-tags.html`, `overview-steps.html` et `overview-failures.html`.  
 
-Ouvrir `overview-features.html`. Cette fois-ci vous devriez voir apparaître les résultats de l'exécution des scénarios sous forme visuelle.   
+Ouvrir `overview-features.html` pour voir apparaître les résultats de l'exécution des scénarios sous forme visuelle.   
 Les autres pages sont accessibles à partir des onglets **Tags**, **Steps**, et **Failures** situés en haut à droite :
 
 - cliquer sur **Tags** pour ouvrir la page `overview-tags.html` (utile si vous avez utilisé l'option de configuration *`tags`*, ce qui n'est pas le cas dans ce tutoriel).    
@@ -1112,46 +1089,31 @@ Remarque : En bas à gauche de la page `overview-features.html` se trouvent des 
     import java.util.ArrayList;
     import java.util.List;
 
-    import org.junit.AfterClass;
-    import org.junit.runner.RunWith;
-
-    import cucumber.api.CucumberOptions;
-    import cucumber.api.junit.Cucumber;
     import net.masterthought.cucumber.Configuration;
     import net.masterthought.cucumber.ReportBuilder;
     import net.masterthought.cucumber.Reportable;
 
-    @RunWith(Cucumber.class)
-    @CucumberOptions(features = "src/test/resources", strict = true, monochrome = true, 
-                    plugin = { "pretty", "json:target/cucumber.json" })
-    public class RunCucumberTest {
-
-	    @AfterClass
-	    public static void generateReport() {
-
-		    try {
-			    Thread.currentThread().sleep(5000);
-		    } catch (InterruptedException e) {
-			   e.printStackTrace();
-		   }
+    public class GenerateReport {
+	
+	    public static void main(String[] args) {
 
 		   File reportOutputDirectory = new File("target");
 		   List<String> jsonFiles = new ArrayList<>();
-		  jsonFiles.add("target/cucumber.json");
+		   jsonFiles.add("target/cucumber.json");
 
-		  String buildNumber = "1";
-		  String projectName = "cucumberProject";
-		  boolean runWithJenkins = false;
-		  boolean parallelTesting = false;
+		   String buildNumber = "1";
+		   String projectName = "cucumberProject";
+		   boolean runWithJenkins = false;
+		   boolean parallelTesting = false;
 
-		  Configuration configuration = new Configuration(reportOutputDirectory, projectName);
-		  // optional configuration
-		  configuration.setParallelTesting(parallelTesting);
-		  configuration.setRunWithJenkins(runWithJenkins);
-		  configuration.setBuildNumber(buildNumber);
+		   Configuration configuration = new Configuration(reportOutputDirectory, projectName);
+		   // optional configuration
+		   configuration.setParallelTesting(parallelTesting);
+		   configuration.setRunWithJenkins(runWithJenkins);
+		   configuration.setBuildNumber(buildNumber);
 
 		  ReportBuilder reportBuilder = new ReportBuilder(jsonFiles, configuration);
-		  Reportable result = reportBuilder.generateReports();
+		   Reportable result = reportBuilder.generateReports();
 	  }
 
     }
