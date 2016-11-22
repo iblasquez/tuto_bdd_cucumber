@@ -656,7 +656,7 @@ Changer un **`0`** de la colonne **`nbCocktails`** de la table **`Examples`** en
 Relancer les tests via `RunCucumberTest.java`.  
 Constater via la console et la vue JUnit que tous les tests ne passent plus.  
 
-**Pour continuer le tutoriel, remettre que des **`0`** de la colonne **`nbCocktails`** et exécuter `RunCucumberTest.java` afin de s'assurer que tous les tests passent au VERT !**
+**Pour continuer le tutoriel, remettre que des `0` de la colonne `nbCocktails` et exécuter `RunCucumberTest.java` afin de s'assurer que tous les tests passent au VERT !**
 
 
 ### Un autre scénario paramétré ...
@@ -975,7 +975,7 @@ Mettre à jour Maven pour que cette nouvelle dépendance soit bien prise en comp
 
 ### 2 Configurer le plug-in `cucumber-reporting`
 
-Pour utiliser le plug-in `cucumber-reporting` et générer les différentes rapports graphiques qu'il propose, nous allons reprendre et adapter le **code proposé ans la rubrique Usage** sur le site de ce plug-in. Jetez un petit coup d'oeil à ce code [ici](https://github.com/damianszczepanik/cucumber-reporting).  
+Pour utiliser le plug-in `cucumber-reporting` et générer les différentes rapports graphiques qu'il propose, nous allons reprendre et adapter le **code proposé dans la rubrique Usage** sur le site de ce plug-in. Jetez un petit coup d'oeil à ce code [ici](https://github.com/damianszczepanik/cucumber-reporting).  
 
 
 ##### 2.1 S'assurer de générer un fichier `json`
@@ -1002,11 +1002,13 @@ Idéalement, le code du plug-in devrait donc se trouver dans une méthode **`gen
 
         @AfterClass  	
 	    public static void generateReport() {
-		    // Mettre ici le code proposé dans la partie Usage de https://github.com/damianszczepanik/cucumber-reporting
+		    // Faire un copier/coller ici du code proposé dans la partie Usage de https://github.com/damianszczepanik/cucumber-reporting
 	        }
     }
 
 ```
+
+**Remarque: Avant de continuer, vérfier que votre méthode `generateReport` est bien `static`**.
 
 ##### 2.3 Paramétrer le plug-in
 
