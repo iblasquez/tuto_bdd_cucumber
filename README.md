@@ -1068,7 +1068,9 @@ Les autres pages sont accessibles à partir des onglets **Tags**, **Steps**, et 
 D'ailleurs, nous allons voir comment se présentent les résultats lors de l'échec d'un (ou plusieurs) scénario(s).  
 Aller dans le fichier `cocktail.fetaure`.  
 Changer la ligne `Then there is 0 cocktails in the order` en  `Then there is 1 cocktails in the order`.   
-Exécuter à nouveau `RunCucumberTest` et consulter à nouveau le fichier `overview-features.html` et les onglets  **Tags**, **Steps**, et **Failures**  pour découvrir les nouveaux rappors d'exécution présentant cette fois-ci un scénario en échec (rouge).
+Exécuter à nouveau `RunCucumberTest`pour pouvoir exécuter les scénarios.
+Une fois l'exécution terminée, lancer `GenerateReport` pour visualiser les rapports générés par le plug-in `cucumber-reporting`.
+Consulter à nouveau le fichier `overview-features.html` et les onglets  **Tags**, **Steps**, et **Failures**  pour découvrir les nouveaux rappors d'exécution présentant cette fois-ci un scénario en échec (rouge).
 
 ***Revenir dans la configuration initiale c-a-d celle où tous les tests passent : remettre `Then there is 0 cocktails in the order` et exécuter `RunCucumberTest` afin de s'assurer que tous les tests passent au VERT !***
 
