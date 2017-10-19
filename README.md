@@ -1133,6 +1133,10 @@ Cukedoctor is a Living documentation tool which integrates Cucumber and Asciidoc
 
 ## Remarques complémentaires <a id="remarquesComplementaires"></a>
 
+### Tout savoir sur le Gherkin ...
+
+[Le Gherkin, la classe !](https://github.com/iblasquez/tuto_bdd_gherkin) : pour découvrir le Gherkin, rien de tel que de le modéliser et de mettre les yeux dans le code !
+
 
 ### Des stories en français (Internationalisation)
 Par défaut les mots clés du Gherkin sont en anglais. Or, la réussite d'un projet BDD est fortement liée à l'écriture des stories de manière collaborative dans un langage naturel et compris de tous.
