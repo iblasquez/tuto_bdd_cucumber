@@ -2,7 +2,7 @@
 
 *Ce tutoriel s'inspire de l'exemple Shakespeare du [Kata Cucumber/Mockito](https://github.com/CodingDojoPolytech/cucumber-mockito-shakespeare) de [Sébastien Mosser](https://twitter.com/petitroll)* 
 
-**[Cucumber](https://cucumber.io/)** est un framework de tests pour le **B**ehavior **D**riven **D**evelopment, initialement développé en Ruby, mais proposant aujourd'hui des [implémentations possibles pour de nombreux autres langages de programmation](https://cucumber.io/docs#cucumber-implementations). Le site de référence est : **[cucumber.io](https://cucumber.io)**.
+**[Cucumber](https://cucumber.io/)** est un framework de tests pour le **B**ehavior **D**riven **D**evelopment, initialement développé en Ruby, mais proposant aujourd'hui des [implémentations possibles pour de nombreux autres langages de programmation](https://docs.cucumber.io/installation). Le site de référence est : **[cucumber.io](https://cucumber.io)**.
 
 Dans l'écosystème Java, [Cucumber](https://cucumber.io/) est aujourd'hui un des frameworks BDD les plus utilisés.
 
@@ -145,7 +145,7 @@ public class RunCucumberTest { }
 L'annotation `@RunWith(Cucumber.class)` permet d'exécuter les scénarios Cucumber dans **JUnit** à l'aide du **JUnit Runner**.
 
 *Remarque* : pour l'instant, la configuration du lanceur de tests est minimale.
-La configuration peut être personnalisée via des options de configuration prédéfinies et consultables dans la [rubrique Running Cucumber du manuel de référence](https://cucumber.io/docs/reference/jvm#running-cucumber). Ces options seront transmises via l'annotation `@CucumberOptions` : nous ajouterons certaines options par la suite.
+La configuration peut être personnalisée via des options de configuration prédéfinies et consultables dans la [rubrique Running Cucumber du manuel de référence](https://docs.cucumber.io/cucumber/api/#running-cucumber). Ces options seront transmises via l'annotation `@CucumberOptions` : nous ajouterons certaines options par la suite.
 
 #### 4.2 Exécution du lanceur de tests (`RunCucumberTest.java`)
 
@@ -734,7 +734,7 @@ Pour faire un parallèle avec un framework de tests unitaires en Java, on peut d
 
 Pour paramétrer le lanceur de test `JUnitRunner`, des options de configurations peuvent lui être transmises via l'annotation `@CucumberOptions`.  
 
-La liste d'options de configuration est disponible dans le manuel de référence (partie [Configuration et List configuration options](https://cucumber.io/docs/reference/jvm#running-cucumber)).  
+La liste d'options de configuration est disponible dans le manuel de référence (partie [Options et List configuration options](https://docs.cucumber.io/cucumber/api/#running-cucumber)).  
 
 Une explication plus détaillée de ces options est disponible [ici](https://testingneeds.wordpress.com/2015/09/15/junit-runner-with-cucumberoptions) et [là](http://toolsqa.wpengine.com/cucumber/cucumber-options/)
 
@@ -1059,10 +1059,10 @@ Par défaut les mots clés du Gherkin sont en anglais. Or, la réussite d'un pro
 
 Si vous souhaitez écrire des scénarios en français, vous pouvez paramétrer votre langage de votre fichier `.feature` en utilisant l'instructrion `#langage:fr` en début de fichier.  
 
-Les mots clés utilisables en français peuvent se retrouver en consultant le fichier [gherkin-languages.json](https://github.com/cucumber/gherkin-java/blob/master/src/main/resources/gherkin/gherkin-languages.json) disponible sous Github dans l'implémentation Gherkin java de Cucumber.
+Les mots clés utilisables en français peuvent se retrouver en consultant le fichier [gherkin-languages.json](https://github.com/cucumber/cucumber/blob/master/gherkin/gherkin-languages.json) disponible sous [Github dans l'implémentation Gherkin de Cucumber](https://github.com/cucumber/cucumber).
 Ce fichier vous indique également que Cucumber propose les mots clés Gerkhin dans de nombreux autres langages : une internationalisation du Gherkin est donc bien proposée par Cucumber.
 
-Des exemples de scénarios en français pour tester la version française du gherkin peuvent être consultés [ici](https://github.com/cucumber/gherkin/blob/master/testdata/good/i18n_fr.feature).
+Des exemples de scénarios en français pour tester la version française du gherkin peuvent être consultés [ici](https://github.com/cucumber/cucumber/blob/master/gherkin/testdata/good/i18n_fr.feature).
 
 
 <!--###  multi-features
@@ -1073,7 +1073,7 @@ http://picocontainer.com/-->
 
 ### Un petit coup d'œil sur des projets utilisant Cucumber
 
-Maintenant que vous êtes familier avec Cucumber, n'hésitez pas à aller voir comment sont écrites les features et implémenter les steps dans de [vrais projets utilisant Cucumber](https://github.com/cucumber/cucumber/wiki/Projects-Using-Cucumber) dont certains sont listés [ici](https://github.com/cucumber/cucumber/wiki/Projects-Using-Cucumber) dans le wiki de Cucumber.
+Maintenant que vous êtes familier avec Cucumber, n'hésitez pas à aller voir comment sont écrites les features et implémenter les steps dans de [vrais projets utilisant Cucumber](https://docs.cucumber.io/community/projects-using-cucumber/) dont certains sont listés [ici](https://docs.cucumber.io/community/projects-using-cucumber/).
 
 Par exemple [Gitlab](https://github.com/gitlabhq/gitlabhq) fait partie de cette liste avec un répertoire **`features`** à explorer : c'est par [là](https://github.com/gitlabhq/gitlabhq/tree/master/features)...
 
@@ -1090,12 +1090,10 @@ Son contenu a été repris dans les articles suivants :
 ## Références
 
 - Le site de référence est : [cucumber.io](https://cucumber.io) avec :  
- [Documentation générale de Cucumber (manuel de référence)](https://docs.cucumber.io/cucumber)  
- [Documentation spécifique à l'implémentation Java de Cucumber](https://cucumber.io/docs/reference/jvm#java)
+ [Documentation de Cucumber (accueil)](https://docs.cucumber.io/)  
+ [Documentation de Cucumber par menus](https://docs.cucumber.io/cucumber/)
 
-- [Le wiki de Cucumber](https://github.com/cucumber/cucumber/wiki/A-Table-Of-Content)
-
-- [UJne liste de projets utilisant Cucumber](https://github.com/cucumber/cucumber/wiki/Projects-Using-Cucumber)
+- [Une liste de projets utilisant Cucumber](https://docs.cucumber.io/community/projects-using-cucumber)
 
 - La documentation du plug-in [Cucumber-Eclipse](https://github.com/cucumber/cucumber-eclipse) disponible sur : [https://github.com/cucumber/cucumber-eclipse](https://github.com/cucumber/cucumber-eclipse). 
 
