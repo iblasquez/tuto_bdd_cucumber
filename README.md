@@ -443,22 +443,22 @@ Choisir **`Scenario`** et compléter la ligne par l'intitulé du scénario, par 
 
 Cette fois-ci l'exemple de ce nouveau scénario concernera **Tom** et **Jerry**.
 
-#### 2.1 Première étape du scénario (Given)
+#### 2.1. Première étape du scénario (Given)
 
 Passer à la ligne suivante pour écrire la première étape du scénario.  
 
 * Un premier `Ctrl+Espace` permet de sélectionner le mot clé **`Given`**.
 * Un second `Ctrl+Espace` affiche les steps déjà écrites dans le fichier java. Choisir la première `who wants to buy a drink` et remplacer le `(.*)` par `Tom` de manière à obtenir comme première étape de ce nouveau scénario : **` Given Tom who wants to buy a drink `**
 
-*Remarque*: Il se peut que la deuxième autocomplétion `Ctrl+Espace` ne veuille pas afficher les steps déjà écrites. Cela peut arriver si les steps du premier scénario présentent un petit symbole de warning jaune indiquant l'erreur `Step '...' does not have a matching glue code`. Si tel est le cas, rafraîchir le fichier `cocktail.feature` avec un `F5` par exemple afin de faire disparaître ce symbole.*
+*Remarque*: il se peut que la deuxième autocomplétion `Ctrl+Espace` ne veuille pas afficher les steps déjà écrites. Cela peut arriver si les steps du premier scénario présentent un petit symbole de warning jaune indiquant l'erreur `Step '...' does not have a matching glue code`. Si tel est le cas, rafraîchir le fichier `cocktail.feature` avec un `F5` par exemple afin de faire disparaître ce symbole.*
 
-#### 2.2 Deuxième étape du scénario (When)
+#### 2.2. Deuxième étape du scénario (When)
 
 Passer à la ligne suivante pour écrire la deuxième étape du scénario.  
 
 De la même manière, en vous aidant de l'autocomplétion `Ctrl+Espace`, écrire : **`When an order is declared for Jerry`**
 
-#### 2.3 Troisième étape du scénario (Then)
+#### 2.3. Troisième étape du scénario (Then)
 
 Passer à la ligne suivante pour écrire la troisième étape du scénario : **`Then there is 0 cocktails in the order`** 
 
@@ -518,7 +518,7 @@ public void the_ticket_must_say(String somethingElse) {
 }
 ```
 
-*Remarque* : Les versions récentes de Cucumber permettent d'utiliser des **Cucumber Expressions** à la place des expressions régulières (regex) pour faciliter l'écriture et la lecture des steps.
+*Remarque* : les versions récentes de Cucumber permettent d'utiliser des **Cucumber Expressions** à la place des expressions régulières (regex) pour faciliter l'écriture et la lecture des steps.
 Ainsi, l'annotation `@When` peut être écrite indifféremment :    
 * soit à partir d'une **Cucumber Expression** (c'est ce que génère dorénavant la console, ici avec le *parameter type* par défaut `{string}`) :  `@When("a message saying {string} is added")`  
 * soit à partir d'une **expression régulière** (regex) :`@When("a message saying \"([^\"]*)\" is added")`
@@ -680,7 +680,7 @@ Pour commencer, modifier donc votre fichier `cocktail.feature` de la manière su
 ```
 
 Exécuter `RunCucumberTest.java` et vérifier que tous les tests passent au VERT !  
-*Remarque* : La console indique désormais `3 Scenarios` et `11 Steps` 
+*Remarque* : la console indique désormais `3 Scenarios` et `11 Steps` 
 
 La lecture des scénarii montre une duplication dans les étapes `Given`, notamment avec l'étape :  `Given Romeo who wants to buy a drink`.
 
@@ -821,7 +821,7 @@ Exécuter `RunCucumberTest`.
 Ouvrir un explorateur de fichiers. Aller dans le répertoire `target` du workspace de votre projet (ou plus rapidement depuis l'IDE, se placer dans la vue `Package Explorer` sur le répertoire `target` de votre projet, puis clic droit puis `Properties` puis appuyer sur le bouton `Show In System Explorer` présent après le chemin indiquant la `Location`).  
 Ouvrir `target` puis `site`, puis `cucumber` et cliquer sur `index.html` afin de visualiser au format HTML le rapport d'exécution des scénarii.  
 
-*Remarque* : Après un rafraîchissement de votre projet (`F5`), vous pouvez aussi rechercher directement le fichier `index.html` depuis la vue `Package Explorer` de votre IDE et double-cliquer dessus : il s'ouvrira alors dans l'IDE.*
+*Remarque* : après un rafraîchissement de votre projet (`F5`), vous pouvez aussi rechercher directement le fichier `index.html` depuis la vue `Package Explorer` de votre IDE et double-cliquer dessus : il s'ouvrira alors dans l'IDE.*
 
 Aller dans le fichier `cocktail.fetaure`.
 Changer la ligne `Then there is 0 cocktails in the order` en  `Then there is 1 cocktails in the order`. Exécuter à nouveau `RunCucumberTest` et consulter/rafraîchir le fichier `index.html` pour découvrir votre nouveau rapport d'exécution présentant cette fois-ci un scénario en échec (ROUGE).
@@ -863,7 +863,7 @@ Depuis un explorateur de fichiers, aller dans le répertoire `target` du workspa
 Ce fichier contient toutes les informations au format JSON relatives à l'exécution des scénarii (étapes Gherkin, steps, temps d'exécution, verdict...).
 Ce fichier n'est pas destiné à être utilisé tel quel, mais a pour but d'être transmis traité pour permettre de proposer, par la suite, un affichage plus convivial : c'est justement ce que nous allons voir dans le paragraphe suivant avec le plug-in [cucumber-reporting](https://github.com/damianszczepanik/cucumber-reporting).
 
-*Remarques* :
+*Remarques*
 
 * Il est bien sûr possible de combiner les 3 options `html:target/site/cucumber`, `json:target/cucumber.json` et `junit:target/cucumber.xml`.
 * D'autres options de configuration sont possibles, pour en savoir plus, une documentation est disponible [ici](https://testingneeds.wordpress.com/2015/09/15/junit-runner-with-cucumberoptions) par exemple.
@@ -1000,7 +1000,7 @@ Aller dans `cucumber-html-reports`.
 Comme indiqué dans la documentation du plug-in `cucumber-reporting` [ici](https://github.com/damianszczepanik/cucumber-reporting), ainsi que dans le code [là](https://github.com/damianszczepanik/cucumber-reporting/blob/master/src/main/java/net/masterthought/cucumber/ReportBuilder.java), le point d'entrée pour visualiser les rapports générés par `cucumber-reporting` est la page `overview-features.html`. 
 Vous remarquerez qu'il existe aussi les pages `overview-tags.html`, `overview-steps.html` et `overview-failures.html` dont nous reparlerons juste après.
 
-##### 3.2 Visualiser les différents rapports générés par `cucumber-reporting`
+##### 3.2. Visualiser les différents rapports générés par `cucumber-reporting`
 
 Ouvrir `overview-features.html` pour voir apparaître les résultats de l'exécution des scénarii sous format visuel.   
 Les autres pages sont accessibles à partir des onglets **Tags**, **Steps**, et **Failures** situés en haut à droite :
