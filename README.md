@@ -55,29 +55,28 @@ Mettre à jour votre `pom.xml` avec les trois dépendances suivantes :
 - les deux dépendances suivantes `cucumber-junit` et `junit` pour pouvoir exécuter les scénarii Cucumber dans **JUnit** à l'aide du **JUnit Runner** comme indiqué dans [la partie Checking Assertions de la documentation de Cucumber](https://docs.cucumber.io/cucumber/checking-assertions/#java). Chaque étape de scénario, considérée alors comme un test spécifique, pourra ainsi être directement visualisée dans la vue JUnit de l'IDE.
 
 ```XML
+<dependencies>
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-java</artifactId>
+		<version>3.0.2</version>
+		<scope>test</scope>
+	</dependency>
 
-	<dependencies>
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>3.0.2</version>
-			<scope>test</scope>
-		</dependency>
+	<dependency>
+		<groupId>io.cucumber</groupId>
+		<artifactId>cucumber-junit</artifactId>
+		<version>3.0.2</version>
+		<scope>test</scope>
+	</dependency>
 
-		<dependency>
-			<groupId>io.cucumber</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>3.0.2</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
+</dependencies>
 ```
 
 Une fois, le `pom.xml` modifié, n'oubliez pas de relancer `Maven -> Update Project...`
@@ -116,10 +115,12 @@ et/ou de noter toutes autres informations utiles à connaître.
 	- Chaque scénario est introduit par le mot clé **`Scenario`**. Ce mot clé peut être suivi ou non d'un titre qui décrit explicitement le critère d'acceptance de la story associé à ce scénario.  
 
 	- Un scénario étant un exemple concret qui illustre une règle métier, il est composé de plusieurs **étapes**. Les différentes étapes d'un scénario sont décrites à partir des 3 principaux mots clés : **`Given`**, **`When`** et **`Then`** suivant la place et le rôle qu'elles occupent dans le scénario :  
-			- `Given` décrit les conditions initiales du scénario, c-a-d le contexte dans lequel va se dérouler le scénario.  
-			- `When` décrit une action effectuée par un utilisateur, c-a-d un événement qui va réellement déclencher le scénario.  
-			- `Then` décrit le comportement attendu, ce qui devrait se produire lorsque les conditions initiales sont remplies et l'action est effectuée.  
-	Pour en savoir plus, la documentation de Cucumber propose deux rubriques sur les étapes (*steps*) **Given-When-Then** consultables [ici](https://docs.cucumber.io/gherkin/reference/#steps) et [là](https://docs.cucumber.io/cucumber/api/#steps).
+	
+		- `Given` décrit les conditions initiales du scénario, c-a-d le contexte dans lequel va se dérouler le scénario.  
+		- `When` décrit une action effectuée par un utilisateur, c-a-d un événement qui va réellement déclencher le scénario.  
+		- `Then` décrit le comportement attendu, ce qui devrait se produire lorsque les conditions initiales sont remplies et l'action est effectuée.  
+	
+Pour en savoir plus, la documentation de Cucumber propose deux rubriques sur les étapes (*steps*) **Given-When-Then** consultables [ici](https://docs.cucumber.io/gherkin/reference/#steps) et [là](https://docs.cucumber.io/cucumber/api/#steps).
 
 Cucumber propose quelques mots clés supplémentaires comme `Background`, `And`, `But`, `Scenario Outline` et `Examples` que nous verrons un peu plus loin.  
 
